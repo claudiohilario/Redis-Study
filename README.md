@@ -1,4 +1,7 @@
 # Study of the Redis
+
+<div style="text-align:center"><img src ="https://image.ibb.co/k4Usjd/redis_card.png" /></div>
+
 ## Redis installation in OS X
 
 ```cli
