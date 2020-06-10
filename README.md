@@ -22,3 +22,7 @@ redis-server
 ```cli
 redis-cli
 ```
+
+## Util links
+- [redis-commander](https://github.com/joeferner/redis-commander)
+- [redis cheatsheet](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/databases/redis.sh)
