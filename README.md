@@ -1,4 +1,4 @@
-# Study of the Redis
+# Learning Redis
 
 <div style="text-align:center"><img src ="https://image.ibb.co/k4Usjd/redis_card.png" /></div>
 
