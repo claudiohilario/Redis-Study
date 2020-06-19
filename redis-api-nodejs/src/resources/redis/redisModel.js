@@ -21,8 +21,27 @@ schema.hsetAction = Joi.object().keys({
     value: Joi.string().required(), 
 });
 
-schema.hgetAction = Joi.object().keys({});
-schema.setnxAction = Joi.object().keys({});
-schema.keysAction = Joi.object().keys({});
+schema.hgetAction = Joi.object().keys({
+    key: Joi.string().required(),
+    field: Joi.string().required(),
+});
+
+schema.setnxAction = Joi.object().keys({
+    key: Joi.string().required(),
+    field: Joi.string().required(),
+});
+
+schema.keysAction = Joi.object().keys({
+ pattern: Joi.string().required(),
+});
+
+schema.delAction = Joi.object().keys({
+    key: Joi.string().required(),
+});
+
+schema.hdelAction = Joi.object().keys({
+    key: Joi.string().required(),
+    field: Joi.string().required(),
+});
 
 module.exports.schema = schema;

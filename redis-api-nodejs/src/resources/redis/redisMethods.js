@@ -69,10 +69,37 @@ async function setnxAction(params) {
 /**
  * 
  * @param {Object} params
+ * @param {string} params.key
+ */
+async function delAction(params) {
+    const { value: valJoi } = await model.schema.delAction.validate(params);
+
+    const response = await redisClient.del(valJoi.key);
+    return response;
+}
+
+/**
+ * 
+ * @param {Object} params
+ * @param {string} params.key
+ * @param {string} params.field
+ */
+async function hdelAction(params) {
+    const { value: valJoi } = await model.schema.hdelAction.validate(params);
+
+    const response = await redisClient.hdel(valJoi.key, valJoi.field);
+    return response;
+}
+
+/**
+ * 
+ * @param {Object} params
  * @param {string} params.pattern
  */
 async function keysAction(params) {
-    const response = await redisClient.keys(params.pattern);
+    const { value: valJoi } = await model.schema.keysAction.validate(params);
+    
+    const response = await redisClient.keys(valJoi.pattern);
     return response;
 }
 
@@ -83,6 +110,8 @@ function executeRedisAction(action, params) {
         hset: hsetAction,
         hget: hgetAction,
         setnx: setnxAction,
+        del: delAction,
+        hdel: hdelAction,
         keys: keysAction,
     }
     

@@ -69,6 +69,39 @@ class RedisService {
         })
     }
 
+    /**
+     * 
+     * @param {string|string[]} key 
+     */
+    del(key) {
+        return new Promise((resolve, reject) => {
+            this.redisClient.del(key, function(error, response) {
+                if(error) {
+                    return reject(error);
+                }
+                return resolve(response);
+            })
+
+        })
+    }
+
+    /**
+     * 
+     * @param {*} key 
+     * @param {*} field 
+     */
+    hdel(key, field) {
+        return new Promise((resolve, reject) => {
+            this.redisClient.hdel(key, field,function(error, response) {
+                if(error) {
+                    return reject(error);
+                }
+                return resolve(response);
+            })
+
+        })
+    }
+
     keys(pattern = '*') {
         return new Promise((resolve, reject) => {
             this.redisClient.keys(pattern, function(error, response) {
